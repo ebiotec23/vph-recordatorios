@@ -132,7 +132,7 @@ export default function Home() {
                 value={rawContacts}
                 onChange={(e) => setRawContacts(e.target.value)}
                 placeholder="ejemplo1@correo.cl&#10;ejemplo2@correo.cl"
-                className="flex-1 w-full bg-white/50 backdrop-blur-sm border-2 border-slate-100 rounded-2xl p-4 text-sm focus:outline-none focus:ring-4 focus:ring-pink-500/10 focus:border-pink-400 transition-all resize-none placeholder:text-slate-300 shadow-inner text-slate-700"
+                className="flex-1 w-full bg-white/50 backdrop-blur-sm border-2 border-slate-100 rounded-2xl p-4 text-sm focus:outline-none focus:ring-4 focus:ring-pink-400/40 focus:border-pink-500 transition-all resize-none placeholder:text-slate-300 shadow-inner text-slate-700 accent-pink-600"
               />
             </div>
           </div>
@@ -154,7 +154,7 @@ export default function Home() {
                     type="text"
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    className="w-full bg-white/50 backdrop-blur-sm border-2 border-slate-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-pink-500/10 focus:border-pink-400 transition-all shadow-sm text-slate-800 font-medium"
+                    className="w-full bg-white/50 backdrop-blur-sm border-2 border-slate-100 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-pink-400/40 focus:border-pink-500 transition-all shadow-sm text-slate-800 font-medium accent-pink-600"
                   />
                 </div>
 
@@ -166,7 +166,7 @@ export default function Home() {
                       <select
                         value={comuna}
                         onChange={(e) => setComuna(e.target.value)}
-                        className="w-full bg-white/50 backdrop-blur-sm border-2 border-slate-100 rounded-xl pl-12 pr-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-pink-500/10 focus:border-pink-400 transition-all appearance-none shadow-sm text-slate-800 font-medium cursor-pointer"
+                        className="w-full bg-white/50 backdrop-blur-sm border-2 border-slate-100 rounded-xl pl-12 pr-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-pink-400/40 focus:border-pink-500 transition-all appearance-none shadow-sm text-slate-800 font-medium cursor-pointer accent-pink-600"
                       >
                         <option value="">Seleccione una comuna...</option>
                         <option value="Antofagasta">Antofagasta</option>
@@ -194,7 +194,7 @@ export default function Home() {
                         type="date"
                         value={fecha}
                         onChange={(e) => setFecha(e.target.value)}
-                        className="w-full bg-white/50 backdrop-blur-sm border-2 border-slate-100 rounded-xl pl-12 pr-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-pink-500/10 focus:border-pink-400 transition-all shadow-sm text-slate-800 font-medium cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0 [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+                        className="w-full bg-white/50 backdrop-blur-sm border-2 border-slate-100 rounded-xl pl-12 pr-4 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-pink-400/40 focus:border-pink-500 transition-all shadow-sm text-slate-800 font-medium cursor-pointer accent-pink-600 [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0 [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:cursor-pointer"
                       />
                     </div>
                   </div>
