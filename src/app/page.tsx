@@ -98,16 +98,7 @@ export default function Home() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
-        {/* Status Alert */}
-        {status.type && (
-          <div className={`mb-6 p-4 rounded-xl flex items-start gap-3 border ${status.type === 'success' ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800'}`}>
-            {status.type === 'success' ? <CheckCircle2 className="w-5 h-5 mt-0.5" /> : <AlertCircle className="w-5 h-5 mt-0.5" />}
-            <div>
-              <h3 className="font-semibold">{status.type === 'success' ? '¡Éxito!' : 'Error'}</h3>
-              <p className="text-sm mt-1 opacity-90">{status.text}</p>
-            </div>
-          </div>
-        )}
+        {/* Status Alert was here, moved to floating modal */}
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
           
@@ -262,20 +253,49 @@ export default function Home() {
                 Estás a punto de enviar este recordatorio a <strong>{validEmails.length} paciente(s)</strong> de la comuna de <strong>{comuna}</strong>. 
                 ¿Estás seguro de que la información de fecha ({new Date(fecha + 'T00:00:00').toLocaleDateString('es-CL')}) y el mensaje son correctos?
               </p>
-              <div className="flex items-center gap-3 justify-end">
+              <div className="flex items-center gap-3 justify-end mt-4">
                 <button
                   onClick={() => setShowConfirm(false)}
-                  className="px-4 py-2 font-medium text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
+                  className="px-5 py-2.5 font-bold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors"
                 >
                   Cancelar
                 </button>
                 <button
                   onClick={handleSend}
-                  className="px-4 py-2 font-medium text-white bg-pink-600 hover:bg-pink-700 rounded-lg transition-colors shadow-sm"
+                  className="px-5 py-2.5 font-bold text-white bg-gradient-to-r from-pink-600 to-pink-500 hover:from-pink-500 hover:to-pink-400 rounded-xl transition-all shadow-md shadow-pink-500/20 hover:shadow-pink-500/40"
                 >
-                  Sí, enviar a {validEmails.length} pacientes
+                  Sí, enviar correos
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Floating Status Modal */}
+      {status.type && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm">
+          <div className="bg-white/90 backdrop-blur-xl border border-white rounded-3xl shadow-2xl max-w-sm w-full overflow-hidden animate-in fade-in zoom-in-95 duration-300">
+            <div className="p-8 text-center">
+              <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5 shadow-inner ${status.type === 'success' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'}`}>
+                {status.type === 'success' ? <CheckCircle2 className="w-8 h-8" /> : <AlertCircle className="w-8 h-8" />}
+              </div>
+              <h2 className={`text-2xl font-black tracking-tight mb-2 ${status.type === 'success' ? 'text-green-700' : 'text-red-700'}`}>
+                {status.type === 'success' ? '¡Enviado con Éxito!' : 'Ocurrió un error'}
+              </h2>
+              <p className="text-slate-600 font-medium mb-8 leading-relaxed">
+                {status.text}
+              </p>
+              <button
+                onClick={() => setStatus({ type: null, text: '' })}
+                className={`w-full py-3.5 px-6 font-bold text-white rounded-xl transition-all shadow-lg active:scale-95 ${
+                  status.type === 'success' 
+                    ? 'bg-gradient-to-r from-green-500 to-green-400 hover:from-green-400 hover:to-green-300 shadow-green-500/30' 
+                    : 'bg-gradient-to-r from-red-500 to-red-400 hover:from-red-400 hover:to-red-300 shadow-red-500/30'
+                }`}
+              >
+                Entendido
+              </button>
             </div>
           </div>
         </div>
